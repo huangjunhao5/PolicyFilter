@@ -89,7 +89,7 @@ export default {
               // 有效期7天
             }
             else{
-              ElMessage.error(res.data.msg);
+              ElMessage.error(res.msg);
             }
             // let token = res.data.token;
           })

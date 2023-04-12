@@ -68,8 +68,11 @@ export default {
       let token = JsCookie.get('token');
       if(!token)return;
       request.delete('/file/delete/' + this.policy.policyId).then((res) => {
-        if(res.data.code == success){
+        if(res.code == success){
           ElMessage.success("删除成功!");
+          this.$router.push({
+            path: '/',
+          })
         }else{
           ElMessage.error("发生错误！");
         }
@@ -86,8 +89,13 @@ export default {
     }
     this.$data.id = this.$route.query.id;
     request.get('/file/query/' + this.$data.id).then((res) => {
-      if(res.data.code == success){
-        this.policy = res.data.data;
+      if(res.code == success){
+        this.policy = res.data;
+        // console.log(res.data);
+        // console.log(res.data.data);
+      }else{
+        console.log('code:' + res.code);
+        ElMessage.error(res.msg);
       }
     })
   }

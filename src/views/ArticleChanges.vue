@@ -111,10 +111,11 @@ export default {
     this.$data.username = JsCookie.get('username')
     let id = this.$route.query.id;
     request.get('/file/query/' + id).then((res) => {
+      console.log('code: ' + res.code);
       if(res.code == success){
-        this.$data.policy = res.data.data;
+        this.$data.policy = res.data;
       }else{
-        ElMessage.error(res.data.msg);
+        ElMessage.error(res.msg);
       }
     })
     let tempBody = this.$data.policy.policyBody.split(/\s+/);
@@ -152,6 +153,12 @@ export default {
           alert('success: ' + success);
           if(res.code == success){
             ElMessage.success("修改成功！");
+            this.$router.push({
+              path: '/article',
+              query: {
+                id: this.policy.policyId,
+              }
+            });
           }else{
             ElMessage.error(res.data.msg);
           }
