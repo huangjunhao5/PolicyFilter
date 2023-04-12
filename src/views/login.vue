@@ -64,7 +64,13 @@ export default {
             console.log('code:' + code);
             console.log('success:' + success);
             if(code == success){
-              let token = res.data.token;
+              let token = '';//res.data.token;
+              try{
+                token = res.data.token;
+              }catch(ex){
+                token = 'admin';
+                console.log(ex);
+              }
               console.log("token:" + token);
               // try{
               //   token = res.data.token;
@@ -76,7 +82,7 @@ export default {
               }
               JsCookie.set('token',token,{ expires: 7 });
               JsCookie.set('username',this.$data.loginForm.username, {expires: 7});
-              this.$router.puch({
+              this.$router.push({
                 path: '/',
               });
               location.reload();
