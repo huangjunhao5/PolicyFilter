@@ -16,6 +16,11 @@
           </template>
         </el-input>
       </div>
+      <p class="address">
+        <span><i class="el-icon-location"></i> 当前位置：浙江 杭州</span>
+        <!--            <li><i class="el-icon-phone"></i> 电话：123-456-7890</li>-->
+        <!--            <li><i class="el-icon-message"></i> 邮箱：<a href="mailto:info@example.com">info@example.com</a></li>-->
+      </p>
     </div>
   </div>
 
@@ -71,7 +76,12 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .inputBox{
+  padding-top: 2em;
+}
+
+.address{
   padding-top: 2em;
 }
 </style>

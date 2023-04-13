@@ -17,6 +17,9 @@ export default {
     MainNav,
     // eslint-disable-next-line vue/no-unused-components
     Footer,
+  },
+  mounted() {
+    document.title = 'Policy Filter';
   }
 }
 </script>

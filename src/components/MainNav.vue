@@ -3,8 +3,8 @@
     <el-row>
       <el-col :span="4">
         <div class="logo" @click="handleLogoTextClicked">
-          <!--          <img src="./logo.png" alt="logo" />-->
-          Policy Filter
+                    <img src="@/assets/logo1.png" alt="logo" />
+<!--          Policy Filter-->
         </div>
       </el-col>
       <el-col :span="18 + navLen">
