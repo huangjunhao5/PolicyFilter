@@ -20,7 +20,7 @@
         </div>
       </el-col>
       <el-col :span="2 - navLen">
-        <div v-if="token">
+        <div v-if="token" style="padding-left: 1em;">
           <el-dropdown>
             <span class="el-dropdown-link logo">
               <div>
@@ -33,7 +33,7 @@
             <template #dropdown>
               <el-dropdown-menu>
                 <el-dropdown-item @click="handleNewArticleClicked">新建文章</el-dropdown-item>
-                <el-dropdown-item disabled>修改信息</el-dropdown-item>
+                <el-dropdown-item @click="handleAdmin">后台管理</el-dropdown-item>
                 <!--                <el-dropdown-item>Action 3</el-dropdown-item>-->
                 <!--                <el-dropdown-item disabled>Action 4</el-dropdown-item>-->
                 <el-dropdown-item divided @click="handleLogout">退出登录</el-dropdown-item>
@@ -65,7 +65,7 @@ export default {
   data() {
     return {
       token: "",
-      username: "",
+      username: "admin",
       navLen: 0,
     }
   },
@@ -78,6 +78,7 @@ export default {
     }else{
       this.$data.navLen = 1;
     }
+    // this.$data.token = '1';
   },
   methods: {
     handleLogout() {
@@ -101,6 +102,11 @@ export default {
       this.$router.push({
         path: '/',
       })
+    },
+    handleAdmin(){
+      this.$router.push({
+        path: '/admin',
+      });
     }
   }
 };

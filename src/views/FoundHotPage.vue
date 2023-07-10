@@ -7,7 +7,7 @@
         <div class="result-item" v-for="(item, index) in resultList" :key="index" @click="ArticleClicked(item.policyId)">
           <div class="result-title">{{ item.policyTitle }}</div>
           <div class="result-info">{{item.province + ' ' + item.policyType + ' ' +  item.pubAgency}}</div>
-          <div class="result-description">创建时间 ： {{ item.pubTime }}</div>
+          <div class="result-description">发布时间 ： {{item.pubTime}} <i class="el-icon-view hot"></i>热度： {{item.hot}}</div>
         </div>
       </div>
     </div>
@@ -36,7 +36,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '10.3万'
         },
         {
           policyId: "100103579",
@@ -51,7 +52,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '12.3万'
         },
         {
           policyId: "100066836",
@@ -66,7 +68,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '20.6万'
         },
         {
           "policyId": "100066901",
@@ -82,7 +85,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '23.4万'
         },
         {
           "policyId": "100066900",
@@ -98,7 +102,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '8.1万'
         },
         {
           "policyId": "100066836",
@@ -114,7 +119,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '21.4万'
         },
         {
           "policyId": "100103603",
@@ -130,7 +136,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '20.2万'
         },
         {
           "policyId": "100066815",
@@ -146,7 +153,8 @@ export default {
           "province": "安徽省",
           "city": "null",
           "policySource": "null",
-          "updateTime": "2022-06-20"
+          "updateTime": "2022-06-20",
+          'hot': '31.8万'
         },
 
       ],
@@ -215,6 +223,10 @@ export default {
 
 .result-item:hover{
   cursor: pointer;
+}
+
+.hot{
+  padding-left: 1em;
 }
 </style>
 

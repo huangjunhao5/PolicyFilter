@@ -10,6 +10,9 @@
           <div class="result-description">创建时间 ： {{ item.pubTime }}</div>
         </div>
       </div>
+      <div>
+        <el-button type="primary" @click="loadMore">加载更多</el-button>
+      </div>
 <!--      <el-pagination-->
 <!--          class="page"-->
 <!--          layout="prev, pager, next, jumper"-->
@@ -35,6 +38,7 @@ export default {
   data() {
     return {
       queryText: '',
+      page: 1,
       form: {
         keyword: '',
         type: '',
@@ -53,7 +57,7 @@ export default {
     console.log(this.$data.queryText);
     this.$data.total = this.$data.resultList.length;
     this.$data.currentPage = 1;
-    request.get('/file/query?keyword=' + this.$data.queryText).then((res) => {
+    request.get('/file/query?page=0&&size=10&&keyword=' + this.$data.queryText).then((res) => {
       // let code = res.data.code;
       // console.log(res.data);
       // console.log(res.code);
@@ -88,6 +92,29 @@ export default {
     },
     handleCurrentChange(val) {
       this.currentPage = val;
+    },
+    loadMore(){
+      request.get('/file/query?page=' + this.page.toString() + '&&size=10&&keyword=' + this.$data.queryText).then((res) => {
+        // let code = res.data.code;
+        // console.log(res.data);
+        // console.log(res.code);
+        console.log(res.code == success);
+        this.$data.resultList = [...this.$data.resultList,...res.data.content];
+        this.page += 1;
+        // this.$data.total = this.$data.resultList.length;
+        // if(this.$route.query.page){
+        //   this.$data.currentPage = this.$route.query.page;
+        // }else{
+        //   this.$data.currentPage = 1;
+        // }
+        // if(code == success){
+        //   //
+        //   // code = 0;
+        // }else{
+        //   ElMessage.error("加载错误，请重试！");
+        //   // this.$router.push('/');
+        // }
+      });
     }
   },
 };

@@ -8,6 +8,7 @@ import MainPage from "@/views/MainPage.vue";
 import ArticleDetails from "@/views/ArticleDetails.vue";
 import ArticleChanges from "@/views/ArticleChanges.vue";
 import FoundHotPage from "@/views/FoundHotPage.vue";
+import AdminPage from "@/views/admin/AdminPage.vue";
 
 const routes = [
   {
@@ -58,6 +59,11 @@ const routes = [
     name: 'FoundHot',
     component: FoundHotPage,
   },
+  {
+    path: '/admin',
+    name: 'AdminPage',
+    component: AdminPage,
+  }
 ]
 
 const router = createRouter({
